@@ -1,0 +1,20 @@
+<%= form_with(model: @item, local: true) do |f|%>
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div>
+    商品名
+    <div>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div>
+    カテゴリーの選択
+    <div id="select-wrap">
+      <%= f.collection_select :category_id, @maincategories, :id, :name, {include_blank: "---"}, {id: "parent-category" } %>
+    </div>
+  </div>
+  </br>
+  <div>
+    <%= f.submit '投稿する' %>
+  </div>
+<% end %>

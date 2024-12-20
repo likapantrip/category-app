@@ -1,0 +1,7 @@
+【商品一覧】  <%= link_to '商品登録', new_item_path %></br>
+</br>
+<% @items.each do |i| %>
+  商品名：<%= i.name %>　<%= link_to '編集', edit_item_path(i.id) %></br>
+  カテゴリー：<%= i.category.root.name %> > <%= i.category.parent.name %> > <%= i.category.name %></br>
+  </br>
+<% end %>
